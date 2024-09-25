@@ -1,0 +1,14 @@
+[14:33 01/2024/19][ERROR]Erreur lors du chargement de la page / : Error: Cannot find module 'html'
+Require stack:
+- C:\Users\mapao\OneDrive\Bureau\projet site lycee\node_modules\express\lib\view.js
+- C:\Users\mapao\OneDrive\Bureau\projet site lycee\node_modules\express\lib\application.js
+- C:\Users\mapao\OneDrive\Bureau\projet site lycee\node_modules\express\lib\express.js
+- C:\Users\mapao\OneDrive\Bureau\projet site lycee\node_modules\express\index.js
+- C:\Users\mapao\OneDrive\Bureau\projet site lycee\server.js
+[14:33 01/2024/19][ERROR]Erreur lors du chargement de la page / : Error: Cannot find module 'html'
+Require stack:
+- C:\Users\mapao\OneDrive\Bureau\projet site lycee\node_modules\express\lib\view.js
+- C:\Users\mapao\OneDrive\Bureau\projet site lycee\node_modules\express\lib\application.js
+- C:\Users\mapao\OneDrive\Bureau\projet site lycee\node_modules\express\lib\express.js
+- C:\Users\mapao\OneDrive\Bureau\projet site lycee\node_modules\express\index.js
+- C:\Users\mapao\OneDrive\Bureau\projet site lycee\server.js

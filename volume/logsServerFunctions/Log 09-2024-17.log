@@ -1,0 +1,2 @@
+[14:24 09/2024/17][CRITICAL]Error: Erreur dans la fonction renameImage: Error: ENOENT: no such file or directory, rename './volume/images/qsj idni.jpg' -> './volume/images/<script>alert('test')</script>.jpg'
+[14:25 09/2024/17][CRITICAL]Error: Erreur dans la fonction renameImage: Error: ENOENT: no such file or directory, rename './volume/images/<script>alert('test')</script>.jpg' -> './volume/images/a.jpg'

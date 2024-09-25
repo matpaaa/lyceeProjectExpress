@@ -1,0 +1,56 @@
+[15:15 09/2024/12][CRITICAL]ReferenceError: next is not defined
+[15:18 09/2024/12][CRITICAL]ReferenceError: image is not defined
+[15:18 09/2024/12][CRITICAL]ReferenceError: responseAddImage is not defined
+[15:48 09/2024/12][CRITICAL]ReferenceError: responseAddImage is not defined
+[15:59 09/2024/12][CRITICAL]Image name already exist
+[15:59 09/2024/12][CRITICAL]Image name already exist
+[15:59 09/2024/12][CRITICAL]Image name already exist
+[15:59 09/2024/12][CRITICAL]Image name already exist
+[15:59 09/2024/12][CRITICAL]Image name already exist
+[15:59 09/2024/12][CRITICAL]Image name already exist
+[15:59 09/2024/12][CRITICAL]Image name already exist
+[16:00 09/2024/12][CRITICAL]Image name already exist
+[16:00 09/2024/12][CRITICAL]Image name already exist
+[16:00 09/2024/12][CRITICAL]Image name already exist
+[16:00 09/2024/12][CRITICAL]Image name already exist
+[16:00 09/2024/12][CRITICAL]Image name already exist
+[16:00 09/2024/12][CRITICAL]Image name already exist
+[16:00 09/2024/12][CRITICAL]Image name already exist
+[16:00 09/2024/12][CRITICAL]Image name already exist
+[16:00 09/2024/12][CRITICAL]Image name already exist
+[16:00 09/2024/12][CRITICAL]Image name already exist
+[16:01 09/2024/12][CRITICAL]Image name already exist
+[16:01 09/2024/12][CRITICAL]Image name already exist
+[16:02 09/2024/12][CRITICAL]Image name already exist
+[16:02 09/2024/12][CRITICAL]Image name already exist
+[16:02 09/2024/12][CRITICAL]Image name already exist
+[16:02 09/2024/12][CRITICAL]Image name already exist
+[16:03 09/2024/12][CRITICAL]Image name already exist
+[16:03 09/2024/12][CRITICAL]Image name already exist
+[16:03 09/2024/12][CRITICAL]Image name already exist
+[16:03 09/2024/12][CRITICAL]Image name already exist
+[16:03 09/2024/12][CRITICAL]Image name already exist
+[16:03 09/2024/12][CRITICAL]Image name already exist
+[16:03 09/2024/12][CRITICAL]Image name already exist
+[16:03 09/2024/12][CRITICAL]Image name already exist
+[16:14 09/2024/12][CRITICAL]Image name already exists
+[16:14 09/2024/12][CRITICAL]Image name already exists
+[16:14 09/2024/12][CRITICAL]Image name already exists
+[16:14 09/2024/12][CRITICAL]Image name already exists
+[16:14 09/2024/12][CRITICAL]Image name already exists
+[16:14 09/2024/12][CRITICAL]Image name already exists
+[16:14 09/2024/12][CRITICAL]Image name already exists
+[16:16 09/2024/12][CRITICAL]Error: Erreur dans la fonction removeImage: Error: ENOENT: no such file or directory, unlink './volume/images/testImage.jpg'
+[16:17 09/2024/12][CRITICAL]Image name already exists
+[16:18 09/2024/12][CRITICAL]Image name already exists
+[16:18 09/2024/12][CRITICAL]Image name already exists
+[16:18 09/2024/12][CRITICAL]Image name already exists
+[16:18 09/2024/12][CRITICAL]Image name already exists
+[16:31 09/2024/12][CRITICAL]Error: Erreur dans la fonction renameImage: Error: ENOENT: no such file or directory, rename './volume/images/testImage.jpg.jpg' -> './volume/images/test.jpg.jpg'
+[16:37 09/2024/12][CRITICAL]Image name already exists
+[16:38 09/2024/12][CRITICAL]Image name already exists
+[16:38 09/2024/12][CRITICAL]Image name already exists
+[16:38 09/2024/12][CRITICAL]Image name already exists
+[16:38 09/2024/12][CRITICAL]Image name already exists
+[16:38 09/2024/12][CRITICAL]Image name already exists
+[16:38 09/2024/12][CRITICAL]Image name already exists

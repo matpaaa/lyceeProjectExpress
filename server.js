@@ -1,14 +1,22 @@
 
 // Import des modules pour le serveur Web
-const express           = require('express')
-const app               = require('express')()
+// const http              = require('http')
+// const app               = require('express')()
+const WebSocket         = require('ws')
+import http from 'http'
+import express from 'express'
+const app = express()
+import WebSocket from 'ws'
 
 // Import pour la création des erreurs
-const { newError, newErrorCritical } = require('./errors/logsErrors.js')
-
+// const { newError, newErrorCritical } = require('./errors/logsErrors.js')
+// const { executePythonFile } = require('./python/executePythonFile.js')
 // Import des fonctions nécessaire pour le traitement de l'image
-const { addImage }      = require('./functions/addImage.js')
-const { printImage }    = require('./functions/printImage.js')
+// Ancienne version: 
+// const { addImage }      = require('./functions/addImage.js')
+// const { printImage }    = require('./functions/printImage.js')
+
+
 const { Pythagore }     = require('./functions/Pythagore.js')
 const { coreImage }     = require('./functions/coreImage.js')
 
@@ -20,20 +28,32 @@ var bodyParser          = require('body-parser')
 // Import Config middlware
 const {
     CONFIG_CORS
-}                       = require('./middleware/configMiddleware.js')
+} = require('./middleware/configMiddleware.js')
 
 // Autre import
+const fs                = require('fs/promises')
 const path              = require('path')
 const { manageProfile } = require('./functions/manageProfile.js')
+const { hashData }      = require('./_utils/crypto.js')
+const { getRoutes } = require('./routes/get.routes.js')
+
 require('dotenv').config()
 
 // Import et config de multer pour l'upload des images
 const storage           = multer.memoryStorage(); // Stockage en mémoire
 const upload            = multer({ storage: storage });
+const server            = http.createServer(app)
+const wss               = new WebSocket.Server({ server })
 
 // Utilisation des middlware
 app.use(cors(CONFIG_CORS))
 app.use(bodyParser.json({ type: 'application/json' }))
+
+// Endpoint params
+app.use('/api/get', getRoutes)
+
+
+let manualMove = []
 
 // Ajoute d'une image
 app.post('/post/images', upload.single('image'), async (req, res, next) => {
@@ -80,6 +100,14 @@ app.get('/get/images', async (req, res, next) => {
         const files = await coreImage.readJsonImagesDetails()
         res.json(files)
     } catch (error) {
+        next(error)
+    }
+})
+
+app.get('/pixels', async (req, res, next) => {
+    try {
+        console.log('test')
+    } catch(error) {
         next(error)
     }
 })
@@ -135,8 +163,11 @@ app.put('/put/print', async (req, res, next) => {
         const name = req.body.name
         const dataFilePythagore = process.env.COORDINATES_PYTHAGORE
         const directoryImages = process.env.DIRECTORY_IMAGES
-        const pythagore = new Pythagore(dataFilePythagore, `${directoryImages}${name}`)
-        pythagore.createCoordinate(true)
+        // const pythagore = new Pythagore(dataFilePythagore, `${directoryImages}${name}`)
+        // pythagore.createCoordinate(true)
+
+        const params = [`--file:${directoryImages}${name}`, `--output:${name.split('.')[0]}`]
+        executePythonFile(params)
 
         res.sendStatus(200)
     } catch (error) {
@@ -161,16 +192,86 @@ app.put('/put/profile', async (req, res, next) => {
     }
 })
 
+// app.post('/login', async (req, res , next) => {
+//     try {
+//         const { password } = req.body
+//         const passwordHashed = hashData(password)
+//         const data = JSON.parse(await fs.readFile('./volume/password.json', 'utf8'))
+//         if (passwordHashed === data.password) {
+//             res.sendStatus(200)
+//         } else {
+//             res.sendStatus(403)
+//         }
+
+//     } catch (error) {
+//         next(error)
+//     }
+// })
+
+// app.post('/createPassword', async (req, res, next) => {
+//     try {
+//         const { password } = req.body
+//         const newPasswordHashed = hashData(password)
+//         const data = {
+//             password: newPasswordHashed
+//         }
+//         await fs.writeFile('./volume/password.json', JSON.stringify(data, null, 2))
+//         res.sendStatus(200)
+//     } catch (error) {
+//         next(error)
+//     }
+// })
+
+app.post('/mouve', async (req, res, next) => {
+    try {
+        console.log(req.body)
+        const { move, draw, direction } = req.body
+
+        if (move, draw, direction) {
+            manualMove.push({
+                move,
+                draw,
+                direction
+            })
+        }
+    } catch (error) {
+        next(error)
+    }
+})
+
+app.get('/manual-pos', async (req, res, next) => {
+    try {
+        const pos = manualMove[0]
+
+        if (pos) {
+            manualMove.shift()
+            res.status(200).json(pos)
+        }
+    } catch (error) {
+        next(error)
+    }
+})
+
 app.use((error, req, res, next) => {
     newErrorCritical(error)
     res.sendStatus(500)
 })
 
-// Démarrage du serveur Web
-app.listen(5000, '0.0.0.0', () => {
+wss.on('connection', async (ws, req) => {
+    ws.on('message', async (message) => {
+        if (Buffer.isBuffer(message)) {
+            console.log('test')
+        }
+    })
+  
+    ws.on('close', () => {})
+})
+
+
+server.listen(5000, '0.0.0.0', () => {
     try {
-        console.log('Le serveur est allumé')
+        console.log('Starting server')
     } catch(e) {
-        newErrorCritical('Erreur lors du lancement du serveur')
+        newErrorCritical('Staring server error')
     }
 })

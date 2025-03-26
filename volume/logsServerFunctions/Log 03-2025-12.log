@@ -1,0 +1,5 @@
+[10:09 03/2025/12][CRITICAL]TypeError: executePythonFile is not a function
+[10:11 03/2025/12][CRITICAL]TypeError: executePythonFile is not a function
+[10:12 03/2025/12][CRITICAL]TypeError: executePythonFile is not a function
+[10:12 03/2025/12][CRITICAL]Error: Error execute pyhton file: TypeError: PythonShell.run is not a function
+[10:13 03/2025/12][CRITICAL]Error: Error execute pyhton file: TypeError: PythonShell.run is not a function
